@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tim Star Production | Music Producer</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --black: #0b0b0b;
+      --white: #ffffff;
+      --gray: #b5b5b5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      color: var(--gold);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--gold);
+    }
+
+    section {
+      padding: 60px 80px;
+    }
+
+    /* HERO */
+    #home {
+       min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero {
+      max-width: 650px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .hero h3 {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    button.btn {
+      border: 1px solid var(--gold);
+      background: transparent;
+      cursor: pointer;
+    }
+
+     /* CV BOX */
+    .cv-box {
+      border: 1px solid #222;
+      padding: 35px;
+      background: #0f0f0f;
+    }
+
+    .cv-box h4 {
+      color: var(--gold);
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .cv-box p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    /*MEDIA QUERIES*/
+    /* RESPONSIVE FIX FOR HOME SECTION */
+@media (max-width: 900px) {
+  #home {
+    grid-template-columns: 1fr;
+    padding-top: 120px;
+  }
+
+  .cv-box {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  section {
+    padding: 50px 30px;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .hero h3 {
+    font-size: 18px;
+  }
+}
+
+
+    /* ABOUT */
+    #about {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    #about h2 {
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      border: 1px solid #222;
+    }
+
+    .carousel img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.6s ease;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .carousel-controls button {
+      background: var(--gold);
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .skill-card {
+      border: 1px solid #222;
+      padding: 25px;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .skill-card h4 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      border: 1px solid #222;
+      padding: 20px;
+    }
+
+    .project-card img {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .project-card h4 {
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal iframe {
+      width: 80%;
+      height: 70%;
+    }
+
+    /* CONTACT */
+    form {
+      max-width: 500px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #111;
+      border: 1px solid #222;
+      color: white;
+    }
+
+    form button {
+      background: var(--gold);
+      border: none;
+      padding: 12px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    span {
+      color: var(--white);
+    }
+
+/* EXPERIENCE + CERTIFICATE LAYOUT */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.certificate-box img {
+  width: 100%;
+  border: 1px solid #222;
+  padding: 15px;
+  background: #0f0f0f;
+}
+
+/* RESPONSIVE STACKING */
+@media (max-width: 900px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate-box {
+    margin-top: 40px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <logo> <img src="images/timstar production.jpeg" width="60px" height="45px" /></logo>
+  <h1></h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div class="hero">
+    <h2>TimStar <span>Production</span></h2>
+    <h3>Music Producer</h3>
+    <p>Creating digital solutions that turn ideas into impact.</p>
+    <a href="#projects" class="btn">View Work</a>
+  </div>
+
+  <div class="cv-box">
+    <h4>Professional Profile</h4>
+    <p>
+      Download a detailed overview of my experience, skills,
+      and production background here.
+    </p>
+    <a href="cv/TIMOTHY BAYA CV.pdf" class="btn">Download CV</a>
+  </div>
+</section>
+
+<section id="about">
+  <div>
+    <h2> <span>About</span> Me</h2>
+    <p>I am a creative and detail-oriented music 
+        producer with hands-on experience in songwriting,
+         music production, and vocal performance. 
+         I specialize in transforming ideas into professionally 
+         crafted sound, from concept to final production, 
+         working closely with emerging artists and independent creators.</p>
+  </div>
+
+  <div class="carousel">
+    <img src="images/WhatsApp Image 2025-12-11 at 23.31.39.jpeg" class="active" />
+    <img src="images/WhatsApp Image 2025-12-11 at 23.31.40 (1).jpeg" />
+    <img src="images/WhatsApp Image 2025-12-11 at 23.31.40.jpeg" />
+    <img src="images/WhatsApp Image 2025-12-11 at 23.31.41 (1).jpeg" />
+    <img src="images/WhatsApp Image 2025-12-11 at 23.31.40.jpeg" />
+    <img src="images/WhatsApp Image 2025-12-11 at 23.31.40 (2).jpeg" />
+    
+    <div class="carousel-controls">
+      <button onclick="prevImage()">‹</button>
+      <button onclick="nextImage()">›</button>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 style="color:var(--gold); margin-bottom:40px">Skills & Competencies</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4><span>Musical Skills</span></h4>
+      <ul>
+        <li>Guitar, Bass, Keys, Sax</li>
+        <li>Music Production</li>
+        <li>Songwriting & Composition</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Technical & Studio</h4>
+      <ul>
+        <li>Audio Editing</li>
+        <li>Basic Mixing</li>
+        <li>Recording Techniques</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>Creative & Collaboration</h4>
+      <ul>
+        <li>Creative Direction</li>
+        <li>Artist Collaboration</li>
+        <li>Project-Based Creativity</li>
+      </ul>
+    </div>
+
+   <div class="skill-card">
+      <h4>Professional & Soft Skills</h4>
+      <ul>
+        <li>Attention to Detail</li>
+        <li>Communication Skills</li>
+        <li>Continuous Learning</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h4>Equipment & Technical Maintenance Skills</h4>
+      <ul>
+        <li>Studio Equipment Setup</li>
+        <li>Signal Flow & Audio Routing</li>
+        
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h4> <span>Live Sound & Performance Support Skills</span></h4>
+      <ul>
+        <li>Live Sound Engineering</li>
+        <li>Technical Problem-Solving</li>
+        
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <h2 style="color:var(--gold); margin-bottom:40px"><span>Selected Works</span></h2>
+  <div class="projects">
+<div class="project-card">
+  <img src="images/ouryt channel.png" width="150px"  height="auto" />
+  <h4>Our Youtube Channel</h4>
+    <button class="btn" onclick="window.open('https://www.youtube.com/@lesgrandsbrothers', '_blank')">
+    Watch
+</button>
+  </div>
+
+    <h2 style="color:var(---white); margin-bottom:40px"></h2>
+  <div class="projects">
+    <div class="project-card">
+      <img src="images/thumbnail1.png" />
+      <h4>Class Project</h4>
+
+<button class="btn" onclick="openModal('https://www.youtube.com/embed/Dh2KEYs5Zl8')">Watch</button>
+</div>
+    </div>
+  </div>
+
+
+    <h2 style="color:var(--gold); margin-bottom:40px"></h2>
+  <div class="projects">
+    <div class="project-card">
+      <img src="images/mdundo channel.png" />
+      <h4>Mdundo.Com Channel</h4>
+      <button class="btn" onclick="openModal('https://play.mdundo.com/artist/354625/Les-Grands-Brothers-International?utm_source=mdundo&utm_medium=geo&utm_campaign=geo_redirect')">Watch</button>
+    </div>
+  </div>
+
+    
+</section>
+
+<section id="experience">
+    <div class="experience-grid">
+
+    <!-- LEFT: EXPERIENCE TEXT -->
+    <div class="experience-text">
+      <h2 style="color:var(--gold); margin-bottom:30px">
+        Experience | <span>Jan 2024 – Present</span>
+      </h2>
+
+      <p><strong>Music Producer & Multi-Instrumentalist</strong>
+        <br>1: Independent Projects & Creative Collaborations
+        <br>2: Led songwriting and composition processes
+        <br>3: Performed and recorded multiple instruments
+        <br>4: Delivered end-to-end music production for original songs
+      </p><br>
+
+      <h2 style="color:var(--gold); margin-bottom:30px">
+        <span>2023 – 2024</span> | Experience
+      </h2>
+
+      <p><strong>Studio & Live Sound Technician</strong>
+        <br>1: Set up and maintained studio and live sound equipment
+        <br>2: Assisted with live sound engineering for performances and events
+        <br>3: Diagnosed and resolved technical issues during recording sessions
+      </p><br>
+
+      <h2 style="color:var(--gold); margin-bottom:30px">
+        Experience | <span>2021 – 2023</span>
+      </h2>
+
+      <p><strong>Academic & Creative Music Projects</strong>
+        <br>1: Communicated effectively to align artistic vision and execution
+        <br>2: Adapted quickly across diverse musical styles and project demands
+        <br>3: Contributed meaningful musical input to achieve project objectives
+        <br>4: Provided creative direction to strengthen musical quality and coherence
+      </p>
+    </div>
+
+    <!-- RIGHT: CERTIFICATE -->
+    <div class="certificate-box">
+      <h2 style="color:var(--gold); margin-bottom:30px">Rhodes <span>Scholarship</span> Certification</h2>
+      <img src="images/experience.jpeg" alt="Professional Certificate">
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2 style="color:var(--gold); margin-bottom:30px">Contact <span>Us</span></h2>
+  <form onsubmit="event.preventDefault(); alert('Message sent successfully');">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<div class="modal" id="videoModal" onclick="closeModal()">
+  <iframe src="" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<footer>
+  © 2026 Tim Star Production. All Rights Reserved.
+</footer>
+
+<script>
+  const images = document.querySelectorAll('.carousel img');
+  let index = 0;
+
+  function showImage(i) {
+    images.forEach(img => img.classList.remove('active'));
+    images[i].classList.add('active');
+  }
+
+  function nextImage() {
+    index = (index + 1) % images.length;
+    showImage(index);
+  }
+
+  function prevImage() {
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+  }
+
+  function openModal(videoUrl) {
+    const modal = document.getElementById('videoModal');
+    modal.style.display = 'flex';
+    modal.querySelector('iframe').src = videoUrl;
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('videoModal');
+    modal.style.display = 'none';
+    modal.querySelector('iframe').src = '';
+  }
+</script>
+
+</body>
+</html>
