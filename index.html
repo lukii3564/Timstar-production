@@ -7,6 +7,11 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
 
   <style>
     :root {
@@ -359,6 +364,119 @@
   }
 }
 
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Right panel */
+.contact-info {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid var(--gold);
+  padding: 30px;
+}
+
+.contact-info h3 {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.contact-desc {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.info-item i {
+  color: var(--gold);
+  font-size: 16px;
+  width: 20px;
+}
+
+.contact-info hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 25px 0;
+}
+
+.contact-info h4 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  transition: 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--gold);
+  color: #000;
+}
+
+
+@media (max-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    margin-top: 30px;
+  }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  background: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  z-index: 3000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float svg {
+  width: 20px;
+  height: 20px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+}
+
+
+
 
   </style>
 </head>
@@ -411,8 +529,9 @@
     <img src="images/WhatsApp Image 2025-12-11 at 23.31.40 (1).jpeg" />
     <img src="images/WhatsApp Image 2025-12-11 at 23.31.40.jpeg" />
     <img src="images/WhatsApp Image 2025-12-11 at 23.31.41 (1).jpeg" />
-    <img src="images/WhatsApp Image 2025-12-11 at 23.31.40.jpeg" />
+    <img src="images/timstar image 4.jpeg" />
     <img src="images/WhatsApp Image 2025-12-11 at 23.31.40 (2).jpeg" />
+     <img src="images/timstar image 7.jpeg" />
     
     <div class="carousel-controls">
       <button onclick="prevImage()">‹</button>
@@ -514,7 +633,7 @@
     
 </section>
 
-<section id="experience">
+<section id="experience"> 
     <div class="experience-grid">
 
     <!-- LEFT: EXPERIENCE TEXT -->
@@ -558,21 +677,70 @@
       <img src="images/experience.jpeg" alt="Professional Certificate">
     </div>
 
+    
+
   </div>
 </section>
 
 <section id="contact">
   <h2 style="color:var(--gold); margin-bottom:30px">Contact <span>Us</span></h2>
-  <form onsubmit="event.preventDefault(); alert('Message sent successfully');">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <textarea rows="4" placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+
+  <div class="contact-wrapper">
+
+    <!-- LEFT: FORM (KEEP YOUR EXISTING FORM HERE) -->
+    <form
+      id="contactForm"
+      action="https://formspree.io/f/xblnbzwb"
+      method="POST"
+    >
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- RIGHT: GET IN TOUCH PANEL -->
+    <div class="contact-info">
+      <h3>Get In Touch</h3>
+      <p class="contact-desc">
+        Feel free to reach out for collaborations, projects, or inquiries.
+      </p>
+
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Kenya, Nairobi</span>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-phone"></i>
+        <span>+254740305588</span>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <span>bayatimothy6@gmail.com</span>
+      </div>
+
+      <hr>
+
+      <h4>Follow Us</h4>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@lesgrandsbrothers"  target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/baya.timothy?igsh=MTFscHdvbnQ2MDN4MA=="   target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+
+
 
 <div class="modal" id="videoModal" onclick="closeModal()">
   <iframe src="" frameborder="0" allowfullscreen></iframe>
+</div>
+
 </div>
 
 <footer>
@@ -609,7 +777,88 @@
     modal.style.display = 'none';
     modal.querySelector('iframe').src = '';
   }
+
+
 </script>
+
+<script>
+  const contactForm = document.getElementById("contactForm");
+  const successPopup = document.getElementById("successPopup");
+
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      if (response.ok) {
+        successPopup.style.display = "flex";
+        contactForm.reset();
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again later.");
+    }
+  });
+
+  function closePopup() {
+    successPopup.style.display = "none";
+  }
+</script>
+
+
+<div id="successPopup" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+">
+  <div style="
+    background: #111;
+    border: 1px solid var(--gold);
+    padding: 35px;
+    text-align: center;
+    max-width: 400px;
+  ">
+    <h3 style="color:var(--gold); margin-bottom:15px">
+      Message Sent
+    </h3>
+    <p style="color:var(--gray); font-size:14px; margin-bottom:25px">
+      Thank you for reaching out. We’ll get back to you shortly.
+    </p>
+    <button class="btn" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+
+<!-- WhatsApp Floating Button -->
+<a 
+  href="https://api.whatsapp.com/send?phone=+254740305588&text=Contacting+you+from+your+website+Timstar+production"
+  class="whatsapp-float"
+  aria-label="Chat on WhatsApp"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path fill="currentColor"
+      d="M16 2.9C8.9 2.9 3.1 8.7 3.1 15.8c0 2.5.7 4.9 2.1 6.9L3 29l6.5-2.1c1.9 1 4.1 1.6 6.5 1.6 7.1 0 12.9-5.8 12.9-12.9S23.1 2.9 16 2.9zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.2-3.9 1.3 1.3-3.8-.3-.4c-1.3-1.8-2-3.9-2-6.1C4.8 9.8 9.8 4.8 16 4.8s11.2 5 11.2 11.2-5 11.2-11.2 11.2zm6.2-8.4c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.3-.6.1-1.2-.4-2.3-1.3c-.8-.7-1.4-1.6-1.6-1.8s0-.5.2-.6c.2-.2.3-.3.5-.5.2-.2.3-.3.4-.5.1-.2.1-.4 0-.5s-.7-1.8-1-2.4c-.3-.6-.6-.5-.7-.5h-.6c-.2 0-.5.1-.7.3s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.8.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"
+    />
+  </svg>
+</a>
+
 
 </body>
 </html>
